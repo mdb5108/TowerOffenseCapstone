@@ -10,6 +10,7 @@
 /*.sdf
 /*.opensdf
 /*.suo
+/*.vs/
 
 # Linux Project files
 /*.pro
