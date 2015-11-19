@@ -91,6 +91,27 @@ bool APathNode::ShouldTickIfViewportsOnly() const
     return true;
 }
 
+void APathNode::SetSelectedPath(APathNode const * toSelect, APathNode const * previous)
+{
+    //Could not find ourself because we cannot go to self?
+    int32 selected = pathsOut.Find(const_cast<APathNode*>(toSelect));
+    if(selected == INDEX_NONE)
+    {
+        selected = pathsOut.Find(const_cast<APathNode*>(previous));
+        if(selected == selectedPath)
+        {
+            selected = (selected + 1) % pathsOut.Num();
+        }
+        else
+        {
+            //If we are selected on a path not backwards but target of selector path
+            return;
+        }
+    }
+
+    SetSelectedPath(selected);
+}
+
 inline void APathNode::SetSelectedPath(int8 const selected)
 {
     check(IsSelectedValid(selectedPath));

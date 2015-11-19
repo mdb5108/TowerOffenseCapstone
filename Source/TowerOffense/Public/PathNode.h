@@ -24,6 +24,9 @@ public:
 
     virtual bool ShouldTickIfViewportsOnly() const override;
 
+    UFUNCTION(BlueprintCallable, Category="Nodes")
+    void SetSelectedPath(APathNode const * toSelect, APathNode const * previous);
+    //static void SetSelectedPath(APathNode * target, APathNode const * toSelect, APathNode const * previous);
     void SetSelectedPath(int8 const selected);
     APathNode const * GetSelectedPathNode() const;
 
