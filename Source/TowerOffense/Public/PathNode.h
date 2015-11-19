@@ -24,7 +24,15 @@ public:
 
     virtual bool ShouldTickIfViewportsOnly() const override;
 
+    void SetSelectedPath(int8 const selected);
+    APathNode const * GetSelectedPathNode() const;
+
 private:
+    bool IsSelectedValid( int8 const selected) const;
+
     UPROPERTY(EditAnywhere, Category = "Nodes")
     TArray<APathNode*> pathsOut;
+
+    UPROPERTY(EditAnywhere, Category = "Nodes")
+    int8 selectedPath = 0;
 };

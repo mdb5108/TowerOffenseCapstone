@@ -90,3 +90,19 @@ bool APathNode::ShouldTickIfViewportsOnly() const
 {
     return true;
 }
+
+inline void APathNode::SetSelectedPath(int8 const selected)
+{
+    check(IsSelectedValid(selectedPath));
+    selectedPath = selected;
+}
+inline APathNode const * APathNode::GetSelectedPathNode() const
+{
+    check(IsSelectedValid(selectedPath));
+    return pathsOut[selectedPath];
+}
+
+inline bool APathNode::IsSelectedValid( int8 const selected) const
+{
+    return 0 <= selected && selected < pathsOut.Num();
+}
