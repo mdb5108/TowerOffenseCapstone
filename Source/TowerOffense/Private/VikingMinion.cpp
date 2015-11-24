@@ -14,7 +14,7 @@ AVikingMinion::AVikingMinion()
     movementComp = static_cast<UCharacterMovementComponent*>(this->GetComponentByClass(UCharacterMovementComponent::StaticClass()));
 
 	//increment minion count
-	AVikingMinion::count_of_minion++;
+	//AVikingMinion::count_of_minion++;
 	
 	
 	
@@ -41,7 +41,7 @@ void AVikingMinion::BeginPlay()
 
 	//OnActorHit.AddDynamic(this, &AVikingMinion::on_collision);
 	//StaticMeshComponent->OnComponentHit.AddDynamic(this, &AVikingMinion::on_collsion);
-	capComp->OnComponentHit.AddDynamic(this, &AVikingMinion::on_collision);
+	capComp->OnComponentBeginOverlap.AddDynamic(this, &AVikingMinion::on_overlap);
 	
 }
 
@@ -92,7 +92,7 @@ void AVikingMinion::SetupPlayerInputComponent(class UInputComponent* InputCompon
 	Super::SetupPlayerInputComponent(InputComponent);	
 }
 
-void AVikingMinion::on_collision(class AActor* otherActor, class UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+void AVikingMinion::on_overlap(class AActor* otherActor, class UPrimitiveComponent* otherComp, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
 	if (otherActor->ActorHasTag("FlamingBall") && delta_local >= 2)
 	{
@@ -101,6 +101,9 @@ void AVikingMinion::on_collision(class AActor* otherActor, class UPrimitiveCompo
 		if (current_health <= 0)
 		{
 			curState = AI_STATE::DEAD;					
+            GetMesh()->SetSimulatePhysics(true);
+            GetMesh()->WakeRigidBody();
+            /* Other interactions are don in the blueprint for simplicity's sake */
 		}
 		delta_local = 0;
 		UE_LOG(LogTemp, Warning, TEXT("Collider triggered"));

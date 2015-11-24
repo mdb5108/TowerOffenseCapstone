@@ -40,7 +40,7 @@ public:
 	float current_health;
 
 	UFUNCTION()
-	void on_collision(class AActor* otherActor, class UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+    void on_overlap(class AActor* otherActor, class UPrimitiveComponent* otherComp, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
 
 	//UPROPERTY(EditAnywhere, Category = "Minion")
 	float delta_local = 0;
