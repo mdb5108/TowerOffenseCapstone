@@ -3,7 +3,43 @@
 #include "TowerOffense.h"
 #include "VikingMinion.h"
 #include "PathNode.h"
+#include "Runtime/Core/Public/Math/UnrealMathUtility.h"
 //#include "BasicClasses.h"
+
+static FName NORDIC_NAMES[] =
+{
+    TEXT("Arne"),
+    TEXT("Bjørn"),
+    TEXT("Eirik"),
+    TEXT("Geir"),
+    TEXT("Gisle"),
+    TEXT("Gunnar"),
+    TEXT("Harald"),
+    //TEXT("Håkon"),
+    TEXT("Inge"),
+    TEXT("Ivar"),
+    TEXT("Knut"),
+    TEXT("Leif"),
+    TEXT("Magnus"),
+    TEXT("Olav"),
+    TEXT("Rolf"),
+    TEXT("Sigurd"),
+    TEXT("Snorre"),
+    TEXT("Steinar"),
+    TEXT("Torstein"),
+    TEXT("Trygve"),
+    TEXT("Ulf"),
+    TEXT("Valdemar"),
+    TEXT("Vidar"),
+    TEXT("Yngve"),
+};
+
+FName AVikingMinion::GetRandomName()
+{
+    static const size_t arraySize = (sizeof(NORDIC_NAMES)/sizeof((NORDIC_NAMES[0])));
+    return NORDIC_NAMES[FMath::RandRange(0, arraySize-1)];
+}
+
 
 // Sets default values
 AVikingMinion::AVikingMinion()

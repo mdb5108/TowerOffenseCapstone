@@ -13,6 +13,10 @@ class TOWEROFFENSE_API AVikingMinion : public ACharacter
 	GENERATED_BODY()
 
 public:
+
+    UFUNCTION(BlueprintCallable, Category="Minion")
+    static FName GetRandomName();
+
 	// Sets default values for this character's properties
 	AVikingMinion();
 
