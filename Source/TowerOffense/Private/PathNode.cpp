@@ -112,18 +112,18 @@ void APathNode::SetSelectedPath(APathNode const * toSelect, APathNode const * pr
     SetSelectedPath(selected);
 }
 
-inline void APathNode::SetSelectedPath(int8 const selected)
+void APathNode::SetSelectedPath(int8 const selected)
 {
     check(IsSelectedValid(selectedPath));
     selectedPath = selected;
 }
-inline APathNode const * APathNode::GetSelectedPathNode() const
+APathNode const * APathNode::GetSelectedPathNode() const
 {
     check(IsSelectedValid(selectedPath));
     return pathsOut[selectedPath];
 }
 
-inline bool APathNode::IsSelectedValid( int8 const selected) const
+bool APathNode::IsSelectedValid( int8 const selected) const
 {
     return 0 <= selected && selected < pathsOut.Num();
 }
