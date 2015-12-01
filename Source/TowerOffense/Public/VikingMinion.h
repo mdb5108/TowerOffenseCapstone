@@ -13,6 +13,10 @@ class TOWEROFFENSE_API AVikingMinion : public ACharacter
 	GENERATED_BODY()
 
 public:
+
+    UFUNCTION(BlueprintCallable, Category="Minion")
+    static FName GetRandomName();
+
 	// Sets default values for this character's properties
 	AVikingMinion();
 
@@ -26,7 +30,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 	
-    UPROPERTY(EditAnywhere, Category = "Minion")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Minion")
     APathNode const * currentNode;
 
     UPROPERTY(EditAnywhere, Category = "Minion")
@@ -40,7 +44,7 @@ public:
 	float current_health;
 
 	UFUNCTION()
-	void on_collision(class AActor* otherActor, class UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+    void on_overlap(class AActor* otherActor, class UPrimitiveComponent* otherComp, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
 
 	//UPROPERTY(EditAnywhere, Category = "Minion")
 	float delta_local = 0;
