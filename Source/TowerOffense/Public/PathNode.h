@@ -11,6 +11,9 @@ class TOWEROFFENSE_API APathNode : public AActor
     GENERATED_BODY()
 
 public:
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Nodes")
+    TArray<APathNode*> pathsOut;
+
     // Sets default values for this actor's properties
     APathNode();
 
@@ -29,12 +32,8 @@ public:
     //static void SetSelectedPath(APathNode * target, APathNode const * toSelect, APathNode const * previous);
     void SetSelectedPath(int8 const selected);
     APathNode const * GetSelectedPathNode() const;
-
 private:
     bool IsSelectedValid( int8 const selected) const;
-
-    UPROPERTY(EditAnywhere, Category = "Nodes")
-    TArray<APathNode*> pathsOut;
 
     UPROPERTY(EditAnywhere, Category = "Nodes")
     int8 selectedPath = 0;
