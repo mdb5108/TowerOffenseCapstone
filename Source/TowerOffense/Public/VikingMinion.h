@@ -30,7 +30,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 	
-    UPROPERTY(EditAnywhere, Category = "Minion")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Minion")
     APathNode const * currentNode;
 
     UPROPERTY(EditAnywhere, Category = "Minion")
