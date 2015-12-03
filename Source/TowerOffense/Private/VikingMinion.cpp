@@ -1,9 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include <string>
+#include <iostream>
 #include "TowerOffense.h"
 #include "VikingMinion.h"
 #include "PathNode.h"
 #include "Runtime/Core/Public/Math/UnrealMathUtility.h"
+
 //#include "BasicClasses.h"
 
 static FName NORDIC_NAMES[] =
@@ -94,6 +97,9 @@ void AVikingMinion::Tick( float DeltaTime )
     switch(curState)
     {
 		case AI_STATE::FOLLOW_PATH:
+			//below code for debug
+			curState = AI_STATE::WON;
+
             if(currentNode != NULL)
             {
                 UCharacterMovementComponent::FStepDownResult* outStepDownResult = NULL;
@@ -107,11 +113,30 @@ void AVikingMinion::Tick( float DeltaTime )
                 AddMovementInput(direction, speed);
                 SetActorRotation(direction.Rotation());
             }
+			//changes to include win condition
+			else
+			{
+				curState = AI_STATE::WON;
+				for (TActorIterator<AActor> ActorItr(GetWorld()); ActorItr; ++ActorItr)
+				{
+					//UE_LOG(LogTemp, Warning, TEXT("Actor %d"), ActorItr->GetUniqueID());// ->GetName());
+					if (ActorItr->GetName().Contains(TEXT("AlliesManager"), ESearchCase::CaseSensitive, ESearchDir::FromStart))
+					{
+						//UE_LOG(LogTemp, Warning, TEXT("Actor %s"), *ActorItr->GetName());
+						//*ActorItr->IncrementWin();
+						this->SetDead();
+					}
+					//ClientMessage(ActorItr->GetActorLocation().ToString());
+				}
+			}
             break;
         case AI_STATE::HOSTILE:
             break;
 		case AI_STATE::DEAD:
 			//speed = 2.0f;
+			break;
+		// do nothing on win state
+		case AI_STATE::WON:
 			break;
         default:
             checkf(false, TEXT("Ran into unknown state!"));

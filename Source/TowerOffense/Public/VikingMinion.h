@@ -55,10 +55,16 @@ public:
 		FOLLOW_PATH = 0 UMETA(DisplayName = "Follow Path"),
 		HOSTILE UMETA(DisplayName = "Hostile"),
 		DEAD UMETA(DisplayName = "Dead"),
+		//win state
+		WON UMETA(DisplayName = "Won"),
 	};
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Minion")
 	AI_STATE curState;
+
+
+	UFUNCTION(BlueprintImplementableEvent, meta = (FriendlyName = "Set Dead Event"))
+		void SetDead();
 
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Minion")
 	//static int32   count_of_minions;
