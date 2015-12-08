@@ -11,30 +11,68 @@
 
 static FName NORDIC_NAMES[] =
 {
-    TEXT("Arne"),
-    TEXT("Bjørn"),
-    TEXT("Eirik"),
-    TEXT("Geir"),
-    TEXT("Gisle"),
-    TEXT("Gunnar"),
-    TEXT("Harald"),
-    //TEXT("Håkon"),
-    TEXT("Inge"),
-    TEXT("Ivar"),
-    TEXT("Knut"),
-    TEXT("Leif"),
-    TEXT("Magnus"),
-    TEXT("Olav"),
-    TEXT("Rolf"),
-    TEXT("Sigurd"),
-    TEXT("Snorre"),
-    TEXT("Steinar"),
-    TEXT("Torstein"),
-    TEXT("Trygve"),
-    TEXT("Ulf"),
-    TEXT("Valdemar"),
-    TEXT("Vidar"),
-    TEXT("Yngve"),
+TEXT("Kevin A"),
+TEXT("Vega B"),
+TEXT("Yash B"),
+TEXT("Matt B"),
+TEXT("Michael B"),
+TEXT("Jared B"),
+TEXT("Arpit C"),
+TEXT("Leigh C"),
+TEXT("Alan C"),
+TEXT("Kun C"),
+TEXT("Shreyas D"),
+TEXT("Ajinkya D"),
+TEXT("Jon D"),
+TEXT("Rony D"),
+TEXT("Karteek E"),
+TEXT("Mitch E"),
+TEXT("Ameya G"),
+TEXT("Kenny G"),
+TEXT("Yashas G"),
+TEXT("Jeff J"),
+TEXT("Utsav J"),
+TEXT("Seth J"),
+TEXT("Rishabh K"),
+TEXT("Mitch K"),
+TEXT("Cody L"),
+TEXT("Kamchai L"),
+TEXT("Wesley M"),
+TEXT("Tara M"),
+TEXT("James M"),
+TEXT("Rohan M"),
+TEXT("Sean M"),
+TEXT("Kevin A"),
+TEXT("Vega B"),
+TEXT("Yash B"),
+TEXT("Matt B"),
+TEXT("Michael B"),
+TEXT("Jared B"),
+TEXT("Arpit C"),
+TEXT("Leigh C"),
+TEXT("Alan C"),
+TEXT("Kun C"),
+TEXT("Shreyas D"),
+TEXT("Ajinkya D"),
+TEXT("Jon D"),
+TEXT("Rony D"),
+TEXT("Karteek E"),
+TEXT("Mitch E"),
+TEXT("Ameya G"),
+TEXT("Kenny G"),
+TEXT("Yashas G"),
+TEXT("Jeff J"),
+TEXT("Utsav J"),
+TEXT("Seth J"),
+TEXT("Rishabh K"),
+TEXT("Mitch K"),
+TEXT("Cody L"),
+TEXT("Kamchai L"),
+TEXT("Wesley M"),
+TEXT("Tara M"),
+TEXT("James M"),
+TEXT("Rohan M"),
+TEXT("Sean M"),
 };
 
 FName AVikingMinion::GetRandomName()
@@ -93,7 +131,6 @@ void AVikingMinion::Tick( float DeltaTime )
 	Super::Tick( DeltaTime );
 
 	//UE_LOG(LogTemp, Warning, TEXT("Delta Time %f"),DeltaTime)
-	delta_local += DeltaTime;
     switch(curState)
     {
 		case AI_STATE::FOLLOW_PATH:
@@ -155,7 +192,7 @@ void AVikingMinion::SetupPlayerInputComponent(class UInputComponent* InputCompon
 
 void AVikingMinion::on_overlap(class AActor* otherActor, class UPrimitiveComponent* otherComp, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
-	if (otherActor->ActorHasTag("FlamingBall") && delta_local >= 2)
+	if (otherActor->ActorHasTag("FlamingBall"))
 	{
 		current_health--;
 		UE_LOG(LogTemp, Warning, TEXT("Current health %f"),current_health);
@@ -166,7 +203,6 @@ void AVikingMinion::on_overlap(class AActor* otherActor, class UPrimitiveCompone
             GetMesh()->WakeRigidBody();
             /* Other interactions are don in the blueprint for simplicity's sake */
 		}
-		delta_local = 0;
 		UE_LOG(LogTemp, Warning, TEXT("Collider triggered"));
 	}
 	//UE_LOG(LogTemp, Warning, TEXT("My Object's location is %s"), *ActorItr->GetActorLocation().ToString());
