@@ -93,7 +93,6 @@ void AVikingMinion::Tick( float DeltaTime )
 	Super::Tick( DeltaTime );
 
 	//UE_LOG(LogTemp, Warning, TEXT("Delta Time %f"),DeltaTime)
-	delta_local += DeltaTime;
     switch(curState)
     {
 		case AI_STATE::FOLLOW_PATH:
@@ -155,7 +154,7 @@ void AVikingMinion::SetupPlayerInputComponent(class UInputComponent* InputCompon
 
 void AVikingMinion::on_overlap(class AActor* otherActor, class UPrimitiveComponent* otherComp, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
-	if (otherActor->ActorHasTag("FlamingBall") && delta_local >= 2)
+	if (otherActor->ActorHasTag("FlamingBall"))
 	{
 		current_health--;
 		UE_LOG(LogTemp, Warning, TEXT("Current health %f"),current_health);
@@ -166,7 +165,6 @@ void AVikingMinion::on_overlap(class AActor* otherActor, class UPrimitiveCompone
             GetMesh()->WakeRigidBody();
             /* Other interactions are don in the blueprint for simplicity's sake */
 		}
-		delta_local = 0;
 		UE_LOG(LogTemp, Warning, TEXT("Collider triggered"));
 	}
 	//UE_LOG(LogTemp, Warning, TEXT("My Object's location is %s"), *ActorItr->GetActorLocation().ToString());
