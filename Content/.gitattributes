@@ -1,2 +1,6 @@
 Props/ filter=lfs diff=lfs merge=lfs -text
 ShortTest.umap filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/oil/ob1.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/oil/ob2.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/oil/ob3.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/oil/ob4.uasset filter=lfs diff=lfs merge=lfs -text
