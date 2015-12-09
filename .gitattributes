@@ -15,3 +15,7 @@ Content/NewWorld_Auto2.umap filter=lfs diff=lfs merge=lfs -text
 Content/Props/Cage/Cage_UVsMap_v2.uasset filter=lfs diff=lfs merge=lfs -text
 Content/Props/Cage/Cage_UVsMap_v2_NRM.uasset filter=lfs diff=lfs merge=lfs -text
 Content/Props/Cage/Cage_UVsMap_v2_SPEC.uasset filter=lfs diff=lfs merge=lfs -text
+Content/advanced_level.umap filter=lfs diff=lfs merge=lfs -text
+Content/intermediate_level.umap filter=lfs diff=lfs merge=lfs -text
+Content/tutorial_level.umap filter=lfs diff=lfs merge=lfs -text
+Content/MainMenuLevel.umap filter=lfs diff=lfs merge=lfs -text
