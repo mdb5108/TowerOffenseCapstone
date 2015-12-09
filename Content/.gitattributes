@@ -4,3 +4,12 @@ ModelsAndAnimations/oil/ob1.uasset filter=lfs diff=lfs merge=lfs -text
 ModelsAndAnimations/oil/ob2.uasset filter=lfs diff=lfs merge=lfs -text
 ModelsAndAnimations/oil/ob3.uasset filter=lfs diff=lfs merge=lfs -text
 ModelsAndAnimations/oil/ob4.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/brickTD-Recovered2.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/brickTD-Recovered.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/concreteTD2.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/concreteTD.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/handrail_flowerbox.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/roofTD.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/windows_h2.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/wood_td-Recovered2.uasset filter=lfs diff=lfs merge=lfs -text
+ModelsAndAnimations/wood_td-Recovered.uasset filter=lfs diff=lfs merge=lfs -text
